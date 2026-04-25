@@ -1,0 +1,131 @@
+/* --- VARIABLES GLOBALES --- */
+:root {
+    --color-primario: #2c3e50;
+    --color-acento: #3498db;
+    --color-acento-hover: #2980b9;
+    --color-fondo: #f4f4f9;
+    --color-texto: #333;
+    --color-blanco: #ffffff;
+    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --borde-radio: 8px;
+    --transicion: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* --- ESTILOS BASE --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    margin: 0;
+    padding: 0;
+}
+
+/* --- ENCABEZADO Y NAVEGACIÓN --- */
+header {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; /* Para centrar mejor h1 y nav */
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+    display: flex;
+}
+
+/* Agrupación de enlaces */
+nav a, .proyectos a, footer a {
+    text-decoration: none;
+    font-weight: bold;
+    transition: var(--transicion);
+    color: var(--color-acento);
+}
+
+nav a:hover, .proyectos a:hover, footer a:hover {
+    color: var(--color-acento-hover);
+}
+
+/* --- SECCIONES Y CONTENEDORES --- */
+section, .proyectos li {
+    background: var(--color-blanco);
+    border-radius: var(--borde-radio);
+}
+
+section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: var(--sombra);
+}
+
+h2 {
+    color: var(--color-primario);
+    border-bottom: 2px solid var(--color-acento);
+    padding-bottom: 10px;
+}
+
+/* --- GRID DE PROYECTOS --- */
+.proyectos ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.proyectos li {
+   border: 1px solid var(--color-acento);
+   padding: 20px;
+   text-align: center;
+}
+
+/* --- FORMULARIO Y BOTONES --- */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, button {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    margin-top: 15px;
+    background-color: var(--color-acento);
+    color: var(--color-blanco);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transicion);
+}
+
+button:hover {
+    background-color: var(--color-acento-hover);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #333;
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 992px) {
+    .proyectos ul { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    header { gap: 15px; }
+    nav ul { flex-direction: column; align-items: center; gap: 10px; }
+    .proyectos ul { grid-template-columns: 1fr; }
+}
